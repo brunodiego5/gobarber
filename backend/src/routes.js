@@ -9,9 +9,9 @@ const routes = new Router();
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
 
-routes.use('/users', authMiddlewares);
+routes.use(authMiddlewares);
 /* todas as rotas a baixo passaram pelo middlewares authMiddlewares */
 
-routes.put('/users', authMiddlewares, UserController.update);
+routes.put('/users', UserController.update);
 
 export default routes;
