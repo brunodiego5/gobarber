@@ -8,7 +8,11 @@ if (process.env.NODE_ENV === 'development') {
     .use(reactotronSaga())
     .connect();
 
+  // no refresh da aplicação é realizado a limpeza da
+  // timeline do reactotron
   tron.clear();
 
+  // para não precisar importar esse arquivo,
+  // qndo usar apenas utilizar console.tron.log('msg');
   console.tron = tron;
 }
