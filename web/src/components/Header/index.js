@@ -1,7 +1,9 @@
 import React from 'react';
 
-import * as Styled from './styles';
+import Notifications from '~/components/Notifications';
+
 import logo from '~/assets/logo-purple.svg';
+import * as Styled from './styles';
 
 function Header() {
   return (
@@ -13,6 +15,8 @@ function Header() {
         </Styled.Nav>
 
         <Styled.Aside>
+          <Notifications />
+
           <Styled.Profile>
             <Styled.ProfileLink>
               <Styled.StrongNome>Bruno Domingues</Styled.StrongNome>
