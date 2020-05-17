@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import Notifications from '~/components/Notifications';
 
@@ -6,6 +7,7 @@ import logo from '~/assets/logo-purple.svg';
 import * as Styled from './styles';
 
 function Header() {
+  const profile = useSelector((state) => state.user.profile);
   return (
     <Styled.Container>
       <Styled.Content>
@@ -24,7 +26,10 @@ function Header() {
             </Styled.ProfileLink>
 
             <Styled.ImgProfile
-              src="https://api.adorable.io/avatars/50/abott@adorable.png"
+              src={
+                profile.avatar.url ||
+                'https://api.adorable.io/avatars/50/abott@adorable.png'
+              }
               alt="Bruno Diego"
             />
           </Styled.Profile>
