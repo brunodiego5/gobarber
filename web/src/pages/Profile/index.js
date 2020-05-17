@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { signOut } from '~/store/modules/auth/actions';
 import { updateProfileRequest } from '~/store/modules/user/actions';
 
 import * as Styled from './styles';
@@ -13,6 +14,10 @@ export default function Profile() {
 
   function handleSubmit(data) {
     dispatch(updateProfileRequest(data));
+  }
+
+  function handleSignOut() {
+    dispatch(signOut());
   }
 
   return (
@@ -44,7 +49,9 @@ export default function Profile() {
         <Styled.Button type="submit">Atualizar Perfil</Styled.Button>
       </Styled.FormProfile>
 
-      <Styled.ButtonSair type="button">Sair do GoBarber</Styled.ButtonSair>
+      <Styled.ButtonSair type="button" onClick={handleSignOut}>
+        Sair do GoBarber
+      </Styled.ButtonSair>
     </Styled.Container>
   );
 }
