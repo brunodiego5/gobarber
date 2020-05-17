@@ -5,6 +5,8 @@ import { updateProfileRequest } from '~/store/modules/user/actions';
 
 import * as Styled from './styles';
 
+import AvatarInput from './AvatarInput';
+
 export default function Profile() {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.user.profile);
@@ -16,12 +18,12 @@ export default function Profile() {
   return (
     <Styled.Container>
       <Styled.FormProfile initialData={profile} onSubmit={handleSubmit}>
+        <AvatarInput name="avatar_id" />
         <Styled.InputProfile name="name" placeholder="Nome completo" />
         <Styled.InputProfile
           name="email"
           placeholder="Seu endereço de e-email"
         />
-
         <Styled.Hr />
 
         <Styled.InputProfile
